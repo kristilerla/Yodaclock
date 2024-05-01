@@ -1,18 +1,47 @@
 function updateTime() {
 
 let osloElement = document.querySelector("#oslo");
+if (osloElement){
 let osloDateElement = osloElement.querySelector(".date");
 let osloTimeElement = osloElement.querySelector(".time");
 let osloTime = moment().tz("Europe/Oslo");
-osloDateElement.innerHTML = moment().format("MMMM, Do YYYY");
-osloTimeElement.innerHTML = osloTime.format("H:mm:ss");
 
-let HoustonElement = document.querySelector("#houston");
-let HoustonDateElement = HoustonElement.querySelector(".date");
-let HoustonTimeElement = HoustonElement.querySelector(".time");
-let HoustonTime = moment().tz("America/Denver");
-HoustonDateElement.innerHTML = moment().format("MMMM, Do YYYY");
-HoustonTimeElement.innerHTML = HoustonTime.format("H:mm:ss");
-};
+osloDateElement.innerHTML = osloTime.format("MMMM, Do YYYY");
+osloTimeElement.innerHTML = osloTime.format("H:mm:ss");
+}
+
+let denverElement = document.querySelector("#denver");
+if (denverElement) {
+let denverDateElement = denverElement.querySelector(".date");
+let denverTimeElement = denverElement.querySelector(".time");
+let denverTime = moment().tz("America/Denver");
+
+denverDateElement.innerHTML = denverTime.format("MMMM Do YYYY");
+denverTimeElement.innerHTML = denverTime.format("H:mm:ss");
+}
+}
+function updateCity (event){
+    let cityTimeZone = event.target.value;
+    if (cityTimeZone === "current") {
+        cityTimeZone = moment.tz.guess();
+    }
+    let cityName = cityTimeZone.replace ("_", " ").split("/")[1];
+    let cityTime = moment().tz(cityTimeZone);
+    let citiesElement = document.querySelector("#cities");
+    citiesElement.innerHTML = `
+<div class="city">
+<div>
+        <h2>${cityName}</h2>
+        <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+        </div>
+        <div class="time">${cityTime.format("H:mm:ss")}</div>
+    </div>
+     <a href="/">All cities</a>`;
+}
+
 updateTime();
-setInterval(updateTime, 1000)
+setInterval(updateTime, 1000);
+
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateCity);

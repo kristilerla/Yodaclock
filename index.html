@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,38 +9,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>YodaClock</title>
 </head>
-
 <body>
     <div class="container">
     <h1>Yoda world clock</h1>
-    <select name="" id="">
-<option value="">Select a city...</option>
-<option value="london">London</option>
-<option value="oslo">Oslo</option>
-<option value="tokyo">Tokyo</option>
-<option value="houston">Houston</option>
 
+    <select id="city">
+        <option value="">Select a city...</option>
+        <option value="current">Current location</option>
+        <option value="Europe/London">London</option>
+        <option value="Europe/Oslo">Oslo</option>
+        <option value="Asia/Tokyo">Tokyo</option>
+        <option value="America/Denver">Denver</option>
     </select>
+
+    <div id="cities">
     <div class="city" id="oslo">
         <div>
-        <h2>Oslo 🇳🇴</h2>
-        <div class="date"></div>
-        </div>
-        <div class="time"></div>
-    </div>
-    <div class="city" id="houston">
-        <div>
-              
-            <h2>Houston 🇺🇸</h2>
+            <h2>Oslo 🇳🇴</h2>
+            <div class="date"></div>
+            <div>
+                <div class="time"></div>
+            </div>
+            <div class="city" id="denver">
+            </div>
+            <h2>Denver 🇺🇸</h2>
             <div class="date"></div>
         </div>
         <div class="time"></div>
         </div>
-            </div>
-</div>
-
-</div>
-    
+        </div>
+    </div>
     <footer>This project was coded with 💜 by <strong>Kristil</strong> at Hey Yoda and <a href="https://github.com/kristilerla/Yodaclock" target="_blank">
 
     hosted on Github.</a>
